@@ -1,4 +1,4 @@
-# CloudFormation Demonstration
+# CloudFormation Demo
 
 As a way of demonstrating your skill level with AWS and Infrastructure-as-Code in general (CloudFormation and Git, in particular), please take the following actions:
 
