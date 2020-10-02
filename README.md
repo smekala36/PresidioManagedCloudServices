@@ -29,7 +29,7 @@ Your template should provision the following resources:
      - It should allow all outbound traffic
      - Assume a VPC already exists and the security group's vpc using a parameter
 
-Add any other parameters or outputs that seem right to you.  If this is too easy, enhance and make it your own. :)
+Add any other parameters or outputs that seem right to you.  If this is too easy, enhance and make it your own- add tags, create a bucket and secure it, log the secret value to CloudWatch logs, the sky is the limit!
 
 ## Ask Questions
 
