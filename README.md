@@ -1,0 +1,2 @@
+# cloudformation-kata
+cloudformation-kata
