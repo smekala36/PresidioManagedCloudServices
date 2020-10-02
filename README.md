@@ -1,6 +1,6 @@
 # CloudFormation Demo
 
-As a way of demonstrating your skill level with AWS and Infrastructure-as-Code in general (CloudFormation and Git, in particular), please take the following actions:
+As a way of demonstrating your skill level with AWS and Infrastructure-as-Code in general (CloudFormation, Bash, and Git, in particular), please take the following actions:
 
   1. Fork this repository and start a new branch in your copy.
   2. In your new branch, add:
