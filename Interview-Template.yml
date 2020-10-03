@@ -1,0 +1,11 @@
+AWSTemplateFormatVersion: "2009-09-09"
+Description : My Interview after 10 years 
+Resources:
+  Ec2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-467ca739 # Amazon Linux AMI in N.Virginia
+      Tags:
+        - Key: Name
+          Value: A simple example 
