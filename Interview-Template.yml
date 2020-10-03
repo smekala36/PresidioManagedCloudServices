@@ -1,4 +1,4 @@
-AWSTemplateFormatVersion: "2009-09-09"
+AWSTemplateFormatVersion: "2010-09-09"
 Description : My Interview after 10 years 
 Resources:
   Ec2Instance:
