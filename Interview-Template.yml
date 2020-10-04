@@ -1,11 +1,49 @@
-AWSTemplateFormatVersion: "2010-09-09"
-Description : My Interview after 10 years 
+Parameters:
+  NameOfService:
+    Description: "The name of the service this stack is to be used for."
+    Type: Interview 
+  KeyName:
+    Description: Name of an existing EC2 KeyPair to enable SSH access into the server
+    Type: AWS::EC2::KeyPair::KeyName
+Mappings:
+  RegionMap:
+    us-east-1:
+      AMI: ami-1853ac65
+    us-west-1:
+      AMI: ami-bf5540df
+    eu-west-1:
+      AMI: ami-3bfab942
+    ap-southeast-1:
+      AMI: ami-e2adf99e
+    ap-southeast-2:
+      AMI: ami-43874721
 Resources:
   Ec2Instance:
-    Type: AWS::EC2::Instance
+    Type: 'AWS::EC2::Instance'
     Properties:
       InstanceType: t2.micro
-      ImageId: ami-467ca739 # Amazon Linux AMI in N.Virginia
+      ImageId:
+        Fn::FindInMap:
+        - RegionMap
+        - !Ref AWS::Region
+        - AMI
+      SecurityGroups: 
+        - !Ref MySecurityGroup
       Tags:
-        - Key: Name
-          Value: A simple example 
+        - Key: "CFM Keypair"
+          Value: !Ref NameOfService
+      KeyName: !Ref KeyName
+  MySecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Enable https access via port 80
+      SecurityGroupIngress:
+        - IpProtocol: https
+          FromPort: '80'
+          ToPort:  '80'
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: https
+          FromPort: '80'
+          ToPort:  '80'
+          CidrIp: 0.0.0.0/0
